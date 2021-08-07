@@ -1,5 +1,6 @@
 const mix = require('laravel-mix');
 const path = require('path');
+const tailwindcss = require('tailwindcss');
 
 // THIS IS A TEMPORARY SOLUTION.
 const { hmrOptions, devServer } = require('./webpack.fix');
@@ -19,14 +20,18 @@ mix.extract();
 
 mix
   .js('resources/js/app.js', 'public/js')
+  .js('resources/js/appAdmin.js', 'public/js')
   .react()
-  .postCss('resources/css/app.css', 'public/css/app.css', [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer')
-  ])
+  // .postCss('resources/css/app.css', 'public/css/app.css', [
+  //   require('postcss-import'),
+  //   require('tailwindcss'),
+  //   require('autoprefixer')
+  // ])
+  .sass('resources/sass/app.scss', 'public/css')
+  .sass('resources/sass/appClient.scss', 'public/css')
   .options({
-    hmrOptions: hmrOptions
+    hmrOptions: hmrOptions,
+    postCss: [ tailwindcss('./tailwind.config.js') ],
   })
   .webpackConfig({
     output: { chunkFilename: 'js/[name].js?id=[chunkhash]' },

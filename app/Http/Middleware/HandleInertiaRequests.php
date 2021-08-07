@@ -15,7 +15,14 @@ class HandleInertiaRequests extends Middleware
      * @see https://inertiajs.com/server-side-setup#root-template
      * @var string
      */
-    protected $rootView = 'app';
+    // protected $rootView = 'appClient';
+    public function rootView(Request $request)
+    {
+        if ($request->route()->getPrefix() == '/admin') {
+            return 'appAdmin';
+        }
+        return 'appClient';
+    }
 
     /**
      * Determines the current asset version.

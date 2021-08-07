@@ -1,8 +1,39 @@
 module.exports = {
-  purge: ['./resources/views/**/*.blade.php', './resources/js/**/*.js'],
+  purge: [
+    './resources/views/**/*.blade.php',
+    './resources/js/**/*.js'
+  ],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
     colors: {
+      primary: {
+        50: '#007d85',
+        100: '#00adb5',
+        200: '#5cdfe7',
+      },
+      accent: {
+        100: '#FFAF36',
+        200: '#FFE141',
+      },
+      primaryDark: {
+        50: '#636871',
+        100: '#393e46',
+        200: '#13181f',
+      },
+      primaryLight: {
+        50: '#ffffff',
+        100: '#EDEDED',
+        200: '#bbbbbb',
+      },
+      grayDark: '#95a5a6',
+      darkBlue: '#1f2029',
+
       transparent: 'transparent',
       current: 'currentColor',
 
@@ -10,6 +41,7 @@ module.exports = {
       white: '#fff',
 
       gray: {
+        50: '#f9fafb',
         100: '#f7fafc',
         200: '#edf2f7',
         300: '#e2e8f0',
@@ -74,6 +106,21 @@ module.exports = {
         700: '#4c51bf',
         800: '#434190',
         900: '#3c366b'
+      }
+    },
+    fontFamily: {
+      display: ['Jost', 'Monoton', 'Righteous', 'cursive'],
+      sans: ['Poppins', 'Graphik', 'sans-serif'],
+      serif: ['Merriweather', 'serif'],
+    },
+    extend: {
+      spacing: {
+        '128': '32rem',
+        '144': '36rem',
+      },
+      borderRadius: {
+        '4xl': '2rem',
+        'big': '6rem',
       }
     }
   },
